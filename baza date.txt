@@ -1,0 +1,29 @@
+Table antrenor {
+  id_antrenor INT [pk]
+  nume VARCHAR(255)
+  varsta INT
+}
+
+Table echipa {
+  id_echipa INT [pk]
+  nume VARCHAR(255)
+  tara VARCHAR(255)
+  telefon VARCHAR(20)
+  antrenor_id INT [ref: > antrenor.id_antrenor]
+}
+
+Table jucator {
+  id_jucator INT [pk]
+  nume VARCHAR(255)
+  varsta INT
+  echipa_id INT [ref: > echipa.id_echipa]
+}
+
+Table stadion {
+  id_stadion INT [pk]
+  nume VARCHAR(255)
+  capacitate INT
+  oras VARCHAR(255)
+  an_infiintare DATE
+  echipa_id INT [ref: > echipa.id_echipa]
+}
